@@ -1,0 +1,12 @@
+{
+  "homeView": {
+    "listen": "Słuchaj super muzyki!"
+  },
+  "songComponent": {
+    "commentsCount": "Brak komentarzy | 1 komentarz | {number} komentarzy"
+  },
+  "register": {
+    "accept": "Akceptuję",
+    "tos": " wartunki uzytkowania"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "homeView": {
+    "listen": "Listen to Great Music!"
+  },
+  "songComponent": {
+    "commentsCount": "No comments | 1 comment | {number} comments"
+  },
+  "register": {
+    "accept": "I accept music's",
+    "tos": " terms of service"
+  }
+}
