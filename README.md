@@ -56,7 +56,5 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
-=======
 # Music-app
 Music app where you can upload your own music and listen to it!
->>>>>>> c8574280b835191336287b35e403cd69ad466a74
