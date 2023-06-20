@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # music-app
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -55,3 +56,7 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
+=======
+# Music-app
+Music app where you can upload your own music and listen to it!
+>>>>>>> c8574280b835191336287b35e403cd69ad466a74
