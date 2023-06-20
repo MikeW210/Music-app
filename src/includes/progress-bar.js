@@ -6,5 +6,5 @@ export default (router) => {
     next();
   });
 
-  router.afterEach(NProgress.done());
+  router.afterEach(() => NProgress.done());
 };
