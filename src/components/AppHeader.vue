@@ -47,21 +47,21 @@ export default {
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <li>
-            <router-link class="px-2 text-white" :to="{ name: 'about' }"
-              >About</router-link
-            >
+            <router-link class="px-2 text-white" :to="{ name: 'about' }">{{
+              $t("appHeader.about")
+            }}</router-link>
           </li>
           <!-- Navigation Links -->
           <li v-if="!loggedIn">
-            <a @click="toggleAuthModal" class="px-2 text-white" href="#"
-              >Login / Register</a
-            >
+            <a @click="toggleAuthModal" class="px-2 text-white" href="#">{{
+              $t("appHeader.login")
+            }}</a>
           </li>
           <template v-else>
             <li>
-              <router-link class="px-2 text-white" :to="{ name: 'manage' }"
-                >Manage</router-link
-              >
+              <router-link class="px-2 text-white" :to="{ name: 'manage' }">{{
+                $t("appHeader.manage")
+              }}</router-link>
             </li>
             <!-- <li>
               <router-link class="px-2 text-white" :to="{ name: 'mySongs' }"
@@ -69,7 +69,9 @@ export default {
               >
             </li> -->
             <li>
-              <a class="px-2 text-white" href="#" @click="logOut">Log out</a>
+              <a class="px-2 text-white" href="#" @click="logOut">{{
+                $t("appHeader.logout")
+              }}</a>
             </li>
           </template>
         </ul>

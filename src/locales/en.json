@@ -1,6 +1,7 @@
 {
   "homeView": {
-    "listen": "Listen to Great Music!"
+    "listen": "Listen to Great Music!",
+    "songs": "Songs"
   },
   "songComponent": {
     "commentsCount": "No comments | 1 comment | {number} comments"
@@ -8,5 +9,23 @@
   "register": {
     "accept": "I accept music's",
     "tos": " terms of service"
+  },
+  "appHeader": {
+    "about": "About",
+    "manage": "Manage",
+    "login": "Login / Register",
+    "logout": "Log out"
+  },
+  "fileUploader": {
+    "upload": "Upload",
+    "dropFiles": "Drop your files here",
+    "chooseFiles": "Choose files"
+  },
+  "manageView": {
+    "mySongs": "My Songs"
+  },
+  "compositionItem": {
+    "submit": "Submit",
+    "goBack": "Go back"
   }
 }

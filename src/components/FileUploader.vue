@@ -1,5 +1,7 @@
 <script>
 import { storage, auth, songsCollection } from "../includes/firebase";
+import { ref, onMounted } from "vue";
+
 export default {
   name: "FileUploader",
   props: {
@@ -12,7 +14,11 @@ export default {
     return {
       isDragged: false,
       uploads: [],
+      fileInput: null,
     };
+  },
+  mounted() {
+    this.fileInput = this.$refs.fileInput;
   },
   methods: {
     upload($event) {
@@ -88,6 +94,11 @@ export default {
         );
       });
     },
+    clickHiddenInput() {
+      if (this.fileInput) {
+        this.fileInput.click();
+      }
+    },
   },
   beforeUnmount() {
     this.uploads.forEach((upload) => upload.task.cancel());
@@ -97,7 +108,7 @@ export default {
 <template>
   <div class="bg-white rounded border border-gray-200 relative flex flex-col">
     <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-      <span class="card-title">Upload</span>
+      <span class="card-title">{{ $t("fileUploader.upload") }}</span>
       <i class="fas fa-upload float-right text-green-400 text-2xl"></i>
     </div>
     <div class="p-6">
@@ -113,9 +124,21 @@ export default {
         @dragleave.prevent.stop="isDragged = false"
         @drop.prevent.stop="upload($event)"
       >
-        <h5>Drop your files here</h5>
+        <h5>{{ $t("fileUploader.dropFiles") }}</h5>
       </div>
-      <input type="file" multiple @change="upload($event)" />
+      <button
+        class="rounded-full border-2 hover:border-lime-600 hover:border-2 bg-lime-400 px-3 py-1 mt-3"
+        @click="clickHiddenInput"
+      >
+        {{ $t("fileUploader.chooseFiles") }}
+      </button>
+      <input
+        :style="{ display: 'none' }"
+        ref="fileInput"
+        type="file"
+        multiple
+        @change="upload($event)"
+      />
       <hr class="my-6" />
       <!-- Progess Bars -->
       <div class="mb-4" v-for="upload in uploads" :key="upload.name">
