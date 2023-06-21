@@ -27,6 +27,7 @@ export default {
       }
     },
     changeLocale() {
+      localStorage.setItem("locale", this.$i18n.locale === "pl" ? "en" : "pl");
       return (this.$i18n.locale = this.$i18n.locale === "pl" ? "en" : "pl");
     },
   },

@@ -27,5 +27,23 @@
   "compositionItem": {
     "submit": "Akceptuj",
     "goBack": "Powrót"
+  },
+  "appAuth": {
+    "yourAccount": "Twoje konto",
+    "login": "Zaloguj",
+    "register": "Zarejestruj",
+    "email": "Email",
+    "password": "Hasło",
+    "submit": "Akceptuj",
+    "enter": "Podaj",
+    "name": "Imie",
+    "age": "Wiek",
+    "confirmPassword": "Potwierdź hasło",
+    "country": "Kraj",
+    "creatingAccount": "Tworzymy twoje konto",
+    "error": "Coś poszło nie tak",
+    "accountCreated": "Utworzono konto",
+    "loggingIn": "Logujemy Cię",
+    "loggedIn": "Jesteś zalogowany"
   }
 }

@@ -45,7 +45,7 @@ export default {
         <div class="py-4 text-left px-6">
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
-            <p class="text-2xl font-bold">Your Account</p>
+            <p class="text-2xl font-bold">{{ $t("appAuth.yourAccount") }}</p>
             <!-- Modal Close Button -->
             <div
               @click="isOpen = false"
@@ -65,7 +65,7 @@ export default {
                   'hover:text-white text-white bg-blue-600': tab === 'login',
                 }"
                 @click="tab = 'login'"
-                >Login</a
+                >{{ $t("appAuth.login") }}</a
               >
             </li>
             <li class="flex-auto text-center">
@@ -76,7 +76,7 @@ export default {
                   'hover:text-white text-white bg-blue-600': tab === 'register',
                 }"
                 @click="tab = 'register'"
-                >Register</a
+                >{{ $t('appAuth.register') }}</a
               >
             </li>
           </ul>
