@@ -20,7 +20,7 @@ export default {
       },
       form_during_submission: false,
       form_submitted: false,
-      reg_alert_message: "Your account is being created",
+      reg_alert_message: `${this.$t("appAuth.creatingAccount")}`,
       reg_alert_class: "bg-blue-500",
     };
   },
@@ -35,11 +35,11 @@ export default {
       } catch (error) {
         this.form_during_submission = true;
         this.reg_alert_class = "bg-red-500";
-        this.reg_alert_message = "Error occurred";
+        this.reg_alert_message = `${this.$t("appAuth.error")}`;
         return;
       }
 
-      this.reg_alert_message = "Your account has been created";
+      this.reg_alert_message = `${this.$t("appAuth.accountCreated")}`;
       this.reg_alert_class = "bg-green-500";
       this.form_submitted = true;
       window.location.reload();
@@ -63,31 +63,31 @@ export default {
   >
     <!-- Name -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Name</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.email") }}</label>
       <vee-field
         name="name"
         type="text"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-        placeholder="Enter Name"
+        :placeholder="`${$t('appAuth.enter')} ${$t('appAuth.name')}`"
         rules="required"
       />
       <ErrorMessage name="name" class="text-red-600" />
     </div>
     <!-- Email -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Email</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.email") }}</label>
       <vee-field
         name="email"
         type="email"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-        placeholder="Enter Email"
+        :placeholder="`${$t('appAuth.enter')} ${$t('appAuth.email')}`"
         rules="email"
       />
       <ErrorMessage name="email" class="text-red-600" />
     </div>
     <!-- Age -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Age</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.age") }}</label>
       <vee-field
         name="age"
         type="number"
@@ -98,12 +98,12 @@ export default {
     </div>
     <!-- Password -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Password</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.password") }}</label>
       <vee-field :bails="false" name="password" v-slot="{ field, errors }">
         <input
           type="password"
           class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-          placeholder="Password"
+          :placeholder="`${$t('appAuth.enter')} ${$t('appAuth.password')}`"
           rules="password"
           v-bind="field"
         />
@@ -114,19 +114,21 @@ export default {
     </div>
     <!-- Confirm Password -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Confirm Password</label>
+      <label class="inline-block mb-2">{{
+        $t("appAuth.confirmPassword")
+      }}</label>
       <vee-field
         name="confirm_password"
         type="password"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-        placeholder="Confirm Password"
+        :placeholder="$t('appAuth.confirmPassword')"
         rules="confirm_password"
       />
       <ErrorMessage name="confirm_password" class="text-red-600" />
     </div>
     <!-- Country -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Country</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.country") }}</label>
       <vee-field
         as="select"
         name="country"
@@ -157,7 +159,7 @@ export default {
       class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition hover:bg-purple-700"
       :disabled="form_during_submission"
     >
-      Submit
+      {{ $t("appAuth.submit") }}
     </button>
   </vee-form>
 </template>

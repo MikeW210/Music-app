@@ -11,7 +11,7 @@ export default {
       },
       login_during_submission: false,
       login_submitted: false,
-      login_alert_message: "Your account is being created",
+      login_alert_message: "",
       login_alert_class: "bg-blue-500",
     };
   },
@@ -22,7 +22,7 @@ export default {
       console.log("dupa");
       this.login_during_submission = true;
       this.login_submitted = true;
-      this.login_alert_message = "You are currently logging in";
+      this.login_alert_message = `${this.$t("appAuth.loggingIn")}`;
       this.login_alert_class = "bg-blue-500";
       try {
         await this.authenticate(values);
@@ -30,11 +30,11 @@ export default {
         this.login_during_submission = true;
         this.login_submitted = false;
         this.login_alert_class = "bg-red-500";
-        this.login_alert_message = "Unexpected error";
+        this.login_alert_message = `${this.$t("appAuth.error")}`;
         return;
       }
       this.login_alert_class = "bg-green-500";
-      this.login_alert_message = "You are logged in";
+      this.login_alert_message = `${this.$t("appAuth.loggedIn")}`;
       window.location.reload();
     },
   },
@@ -51,24 +51,24 @@ export default {
   <vee-form :validation-schema="login_schema" @submit="loginUser">
     <!-- Email -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Email</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.email") }}</label>
       <vee-field
         name="email"
         type="email"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-        placeholder="Enter Email"
+        :placeholder="`${$t('appAuth.enter')} ${$t('appAuth.email')}`"
         rules="email"
       />
       <ErrorMessage name="email" class="text-red-600" />
     </div>
     <!-- Password -->
     <div class="mb-3">
-      <label class="inline-block mb-2">Password</label>
+      <label class="inline-block mb-2">{{ $t("appAuth.password") }}</label>
       <vee-field
         name="password"
         type="password"
         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-        placeholder="Password"
+        :placeholder="`${$t('appAuth.enter')} ${$t('appAuth.password')}`"
       />
       <ErrorMessage name="password" class="text-red-600" />
     </div>
@@ -76,7 +76,7 @@ export default {
       type="submit"
       class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition hover:bg-purple-700"
     >
-      Submit
+      {{ $t("appAuth.submit") }}
     </button>
   </vee-form>
 </template>

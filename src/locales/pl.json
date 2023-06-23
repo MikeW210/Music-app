@@ -1,6 +1,7 @@
 {
   "homeView": {
-    "listen": "Słuchaj super muzyki!"
+    "listen": "Słuchaj super muzyki!",
+    "songs": "Piosenki"
   },
   "songComponent": {
     "commentsCount": "Brak komentarzy | 1 komentarz | {number} komentarzy"
@@ -8,5 +9,41 @@
   "register": {
     "accept": "Akceptuję",
     "tos": " wartunki uzytkowania"
+  },
+  "appHeader": {
+    "about": "O nas",
+    "manage": "Zarządzaj",
+    "login": "Zaloguj / Zarejestruj",
+    "logout": "Wyloguj"
+  },
+  "fileUploader": {
+    "upload": "Wgraj",
+    "dropFiles": "Upuść tutaj swoje pliki",
+    "chooseFiles": "Wybierz pliki"
+  },
+  "manageView": {
+    "mySongs": "Moje piosenki"
+  },
+  "compositionItem": {
+    "submit": "Akceptuj",
+    "goBack": "Powrót"
+  },
+  "appAuth": {
+    "yourAccount": "Twoje konto",
+    "login": "Zaloguj",
+    "register": "Zarejestruj",
+    "email": "Email",
+    "password": "Hasło",
+    "submit": "Akceptuj",
+    "enter": "Podaj",
+    "name": "Imie",
+    "age": "Wiek",
+    "confirmPassword": "Potwierdź hasło",
+    "country": "Kraj",
+    "creatingAccount": "Tworzymy twoje konto",
+    "error": "Coś poszło nie tak",
+    "accountCreated": "Utworzono konto",
+    "loggingIn": "Logujemy Cię",
+    "loggedIn": "Jesteś zalogowany"
   }
 }

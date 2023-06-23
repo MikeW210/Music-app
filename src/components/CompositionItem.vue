@@ -72,20 +72,22 @@ export default {
 
 <template>
   <div class="border border-gray-200 p-3 mb-4 rounded">
-    <div v-if="!showForm">
+    <div class="flex justify-between items-center" v-if="!showForm">
       <h4 class="inline-block text-2xl font-bold">{{ song.modified_name }}</h4>
-      <button
-        @click.prevent="deleteSongFromDB"
-        class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
-      >
-        <i class="fa fa-times"></i>
-      </button>
-      <button
-        @click.prevent="showForm = !showForm"
-        class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
-      >
-        <i class="fa fa-pencil-alt"></i>
-      </button>
+      <div class="flex flex-row">
+        <button
+          @click.prevent="deleteSongFromDB"
+          class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+        >
+          <i class="fa fa-times"></i>
+        </button>
+        <button
+          @click.prevent="showForm = !showForm"
+          class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+        >
+          <i class="fa fa-pencil-alt"></i>
+        </button>
+      </div>
     </div>
     <div v-if="showForm">
       <div
@@ -122,21 +124,23 @@ export default {
           />
           <ErrorMessage name="genre" class="text-red-600" />
         </div>
-        <button
-          :disabled="inSubmission"
-          type="submit"
-          class="py-1.5 px-3 rounded text-white bg-green-600"
-        >
-          Submit
-        </button>
-        <button
-          :disabled="inSubmission"
-          type="button"
-          class="py-1.5 px-3 rounded text-white bg-gray-600"
-          @click.prevent="showForm = !showForm"
-        >
-          Go Back
-        </button>
+        <div class="flex justify-end">
+          <button
+            :disabled="inSubmission"
+            type="submit"
+            class="py-1.5 px-3 rounded text-white bg-green-600 mr-2"
+          >
+            {{ $t("compositionItem.submit") }}
+          </button>
+          <button
+            :disabled="inSubmission"
+            type="button"
+            class="py-1.5 px-3 rounded text-white bg-gray-600"
+            @click.prevent="showForm = !showForm"
+          >
+            {{ $t("compositionItem.goBack") }}
+          </button>
+        </div>
       </vee-form>
     </div>
   </div>
