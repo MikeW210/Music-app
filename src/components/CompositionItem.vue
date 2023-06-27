@@ -59,12 +59,17 @@ export default {
       this.changeUnsavedFlag(false);
     },
     async deleteSongFromDB() {
-      const storageRef = storage.ref();
-      const songRef = storageRef.child(`music/${this.song.original_name}`);
-      await songRef.delete();
+      const prompt = confirm("are you sure");
+      if (prompt) {
+        const storageRef = storage.ref();
+        const songRef = storageRef.child(`music/${this.song.original_name}`);
+        await songRef.delete();
 
-      await songsCollection.doc(this.song.id).delete();
-      this.deleteSong(this.index);
+        await songsCollection.doc(this.song.id).delete();
+        this.deleteSong(this.index);
+      } else {
+        return;
+      }
     },
   },
 };
