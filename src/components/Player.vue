@@ -3,6 +3,11 @@ import { mapActions, mapState } from "pinia";
 import usePlayerStore from "../stores/player";
 export default {
   name: "PlayerComponent",
+  data() {
+    return {
+      volume: 50,
+    };
+  },
   computed: {
     ...mapState(usePlayerStore, [
       "playing",
@@ -10,10 +15,23 @@ export default {
       "duration",
       "playerProgress",
       "currentSong",
+      "isLooping",
     ]),
   },
   methods: {
-    ...mapActions(usePlayerStore, ["toggleMusic", "updateSeek"]),
+    ...mapActions(usePlayerStore, [
+      "toggleMusic",
+      "updateSeek",
+      "changeVolume",
+      "toggleLoop",
+      "toggleLoop",
+    ]),
+    changeVolumeHandler(volumeLevel) {
+      this.changeVolume(volumeLevel);
+    },
+    handleLoop() {
+      this.toggleLoop();
+    },
   },
 };
 </script>
@@ -55,8 +73,43 @@ export default {
       </div>
       <!-- Duration -->
       <div class="player-duration">{{ duration }}</div>
+      <div class="slider-container">
+        <div class="flex justify-center">
+          <input
+            @input="changeVolumeHandler(volume)"
+            v-model="volume"
+            type="range"
+            min="0"
+            max="100"
+          />
+          <div class="slider-value">
+            <p class="ml-1">{{ volume }}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <i
+          @click="handleLoop"
+          :class="{ 'text-green-400': isLooping }"
+          class="material-icons"
+          style="font-size: 20px"
+          >loop</i
+        >
+      </div>
     </div>
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.slider {
+  position: relative;
+  width: 200px;
+  height: 20px;
+}
+.slider-value {
+  font-family: "Google Sans Regular";
+  width: 28px;
+  height: 20px;
+  text-align: center;
+}
+</style>

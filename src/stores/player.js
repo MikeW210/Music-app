@@ -9,6 +9,7 @@ export default defineStore("player", {
     seek: "0:00",
     duration: "0:00",
     playerProgress: "0%",
+    isLooping: false,
   }),
   actions: {
     async newSong(song) {
@@ -20,13 +21,25 @@ export default defineStore("player", {
       this.sound = new Howl({
         src: [song.url],
         html5: true,
+        loop: this.isLooping,
       });
 
       this.sound.play();
+      console.log(
+        "🚀 ~ file: player.js:21 ~ newSong ~ this.sound:",
+        this.sound
+      );
 
       this.sound.on("play", () => {
         requestAnimationFrame(this.progress);
       });
+    },
+    changeVolume(soundLevel) {
+      this.sound.volume(soundLevel / 100);
+    },
+    toggleLoop() {
+      this.sound.loop(!this.sound.loop());
+      this.isLooping = !this.isLooping;
     },
     async toggleMusic() {
       if (!this.sound.playing) {
