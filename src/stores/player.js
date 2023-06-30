@@ -25,10 +25,6 @@ export default defineStore("player", {
       });
 
       this.sound.play();
-      console.log(
-        "🚀 ~ file: player.js:21 ~ newSong ~ this.sound:",
-        this.sound
-      );
 
       this.sound.on("play", () => {
         requestAnimationFrame(this.progress);
@@ -65,10 +61,6 @@ export default defineStore("player", {
         },
       });
       this.currentSong = sound;
-      console.log(
-        "🚀 ~ file: player.js:55 ~ playPlaylist ~ this.currentSong:",
-        this.currentSong
-      );
       sound.play();
     },
     async stopAndResetSong() {
